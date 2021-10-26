@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake() 
     {
-        Application.targetFrameRate = FrameRate;
+        // Application.targetFrameRate = FrameRate;
     }
 
     public IEnumerator gameOver()

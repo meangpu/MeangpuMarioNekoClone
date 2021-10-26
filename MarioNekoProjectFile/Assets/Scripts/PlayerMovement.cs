@@ -32,17 +32,6 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         mainAnim.SetFloat("WalkSpeed", Mathf.Abs(horizontalMove));
-
-        // if (Input.GetButtonDown("Jump"))
-        // {
-        //     jumpBufferCount = jumpBufferLength;
-        //     mainAnim.SetTrigger("Jump");
-        //     // jump = true;
-        // }
-        // else
-        // {
-        //     jumpBufferCount -= Time.deltaTime;
-        // }
         
         if (Input.GetButtonDown("Jump"))
         {
@@ -50,8 +39,6 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
         }
 
-
-        // emission part
         if(horizontalMove != 0 && controllerScpt.m_Grounded)
         {
             walkParEmission.rateOverTime = walkParRate;
@@ -70,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        // controllerScpt.Move(horizontalMove * Time.fixedDeltaTime, false, jumpBufferCount>0, stopjump);
         controllerScpt.Move(horizontalMove * Time.fixedDeltaTime, false, jump, stopjump);
         jump = false;
         stopjump = false;
